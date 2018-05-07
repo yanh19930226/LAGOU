@@ -1,7 +1,6 @@
 {
   "name": "lagou",
   "version": "1.0.0",
-  "description": "",
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -20,5 +19,14 @@
     "gulp-plumber": "^1.2.0",
     "gulp-uglify": "^3.0.0",
     "open": "0.0.5"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yanh19930226/LAGOU.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yanh19930226/LAGOU/issues"
+  },
+  "homepage": "https://github.com/yanh19930226/LAGOU#readme",
+  "description": ""
 }
