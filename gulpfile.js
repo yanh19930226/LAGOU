@@ -14,6 +14,13 @@ gulp.task('lib', function() {
   .pipe(gulp.dest(app.prdPath + 'vendor'))
   .pipe($.connect.reload());
 });
+//css拷贝
+gulp.task('libcss', function() {
+  gulp.src('bower_components/**/*.css')
+  .pipe(gulp.dest(app.devPath + 'vendor'))
+  .pipe(gulp.dest(app.prdPath + 'vendor'))
+  .pipe($.connect.reload());
+});
 //html文件拷贝
 gulp.task('html', function() {
   gulp.src(app.srcPath + '**/*.html')
@@ -28,15 +35,6 @@ gulp.task('json', function() {
   .pipe(gulp.dest(app.prdPath + 'data'))
   .pipe($.connect.reload());
 });
-//less编译压缩合并
-// gulp.task('style',function(){
-//   gulp.src([app.srcPath +'style/*.less','!'+app.srcPath +'styles/_*.less'])
-//   .pipe($.less())
-//   .pipe(gulp.dest(app.devPath + 'css'))
-//   .pipe($.cssmin())
-//   .pipe(gulp.dest(app.prdPath + 'css'))
-// });
-
 //less文件编译
 gulp.task('less', function() {
   gulp.src(app.srcPath + 'style/index.less')
@@ -72,7 +70,7 @@ gulp.task('clean', function() {
   .pipe($.clean());
 });
 //总构建任务
-gulp.task('build', ['image', 'js', 'less','lib', 'html', 'json']);
+gulp.task('build', ['image', 'js', 'less','lib','libcss','html', 'json']);
 //服务器
 gulp.task('serve', ['build'], function() {
   $.connect.server({
@@ -87,6 +85,7 @@ gulp.task('serve', ['build'], function() {
   open('http://localhost:3003');
 
   gulp.watch('bower_components/**/*', ['lib']);
+  gulp.watch('bower_components/**/*', ['libcss']);
   gulp.watch(app.srcPath + '**/*.html', ['html']);
   gulp.watch(app.srcPath + 'data/**/*.json', ['json']);
   gulp.watch(app.srcPath + 'style/**/*.less', ['less']);
