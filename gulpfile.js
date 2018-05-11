@@ -42,7 +42,7 @@ gulp.task('less', function() {
   .pipe($.less())
   .pipe(gulp.dest(app.devPath + 'css'))
   .pipe($.cssmin())
-  .pipe(gulp.dest(app.prdPath + 'css'))
+  .pipe(gulp.dest(app.prdPath + 'css'));
   // .pipe($.connect.reload());
 });
 //js任务
