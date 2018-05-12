@@ -1,18 +1,19 @@
-<ul class="position-list">
-  <li class="item">
+<ul class="bg-w position-list">
+  <li class="item" ng-repeat='item in list'>
+    <img class="logo f-l" ng-src="{{item.imageUrl}}" alt="">
+    <h3 class="title" ng-bind="item.name"></h3>
+    <p class="text" ng-bind="item.companyName+'['+item.cityName+']'+' '+item.industry">
+      <!-- 千度[上海]互联网<br>
+      2018-05-11 -->
+    </p>
+    <p class="text" ng-bind="item.date"></p>
+  </li>
+  <!-- <li class="item">
     <img class="logo f-l" src="images/company-3.png" alt="">
     <h3 class="title">销售</h3>
     <p class="text">
       千度[上海]互联网<br>
       2018-05-11
     </p>
-  </li>
-  <li class="item">
-    <img class="logo f-l" src="images/company-3.png" alt="">
-    <h3 class="title">销售</h3>
-    <p class="text">
-      千度[上海]互联网<br>
-      2018-05-11
-    </p>
-  </li>
+  </li> -->
 </ul>
